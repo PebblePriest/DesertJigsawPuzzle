@@ -12,7 +12,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public GameObject camel;
     public GameObject selectionMenu;
-    
+    public GameObject oasis;
     private GameObject spawnedObject;
     public GameObject instructions;
   

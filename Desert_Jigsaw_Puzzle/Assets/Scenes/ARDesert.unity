@@ -2052,6 +2052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camel: {fileID: 6984392933271138813, guid: 4186b846eb148494caa83c9fc6511c7d, type: 3}
   selectionMenu: {fileID: 965139551}
+  oasis: {fileID: 919132149155446097, guid: 01c6a673d87331649a4db8f2123d861d, type: 3}
   instructions: {fileID: 205911339}
   hud: {fileID: 1007307742}
   lockButton: {fileID: 575901058}
