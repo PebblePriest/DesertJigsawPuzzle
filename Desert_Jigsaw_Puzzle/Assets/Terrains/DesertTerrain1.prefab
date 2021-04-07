@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1042666412879130610}
   - component: {fileID: 749809810742383780}
   - component: {fileID: 1589700951239030299}
+  - component: {fileID: -4099812965178821505}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: DesertTerrain1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,3 +77,20 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: ec7273d6d1b28d74abdeb1469e2d5bbb, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &-4099812965178821505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984392933271138813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc97e448da74624fbca71b5b694722a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsSelected: 0
+  IsLocked: 0
+  OverlayText: {fileID: 0}
+  canvasComponent: {fileID: 0}
+  OverlayDisplayText: 
