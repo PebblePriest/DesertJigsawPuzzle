@@ -11,7 +11,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 { 
 
     public GameObject camel;
-
+    public GameObject selectionMenu;
     
     private GameObject spawnedObject;
     public GameObject instructions;
@@ -28,9 +28,10 @@ public class ARTapToPlaceObject : MonoBehaviour
     private bool isLocked = false;
     [SerializeField]
     private Camera arCamera;
-    [SerializeField]
+   
     private float defaultRotation = 0;
     private bool onTouchHold = false;
+    
     private void Awake()
     {
         arPlaneM = GetComponent<ARPlaneManager>();
@@ -70,22 +71,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     void Update()
     {
         PlaceandDragObject();
-        //if (!TryToTouch(out Vector2 touchPosition))
-        //    return;
-
-        //if(arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
-        //{
-        //    var hitPose = hits[0].pose;
-
-        //    if(spawnedObject == null)
-        //    {
-        //        spawnedObject = Instantiate(camel, hitPose.position, hitPose.rotation);
-        //    }
-        //    else
-        //    {
-        //        spawnedObject.transform.position = hitPose.position;
-        //    }
-        //}
+        
     }
     public void DisableInstructions()
     {
@@ -120,7 +106,7 @@ public class ARTapToPlaceObject : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             touchPosition = touch.position;
-
+           
             if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = arCamera.ScreenPointToRay(touch.position);
@@ -170,5 +156,17 @@ public class ARTapToPlaceObject : MonoBehaviour
                 }
             }
         }
+    }
+    public void SelectTile()
+    {
+        selectionMenu.SetActive(true);
+        hud.SetActive(false);
+
+    }
+    public void SelectPrefab()
+    {
+        selectionMenu.SetActive(false);
+        hud.SetActive(true);
+        
     }
 }
