@@ -15,16 +15,19 @@ public class ARTapToPlaceObject : MonoBehaviour
     
     private GameObject spawnedObject;
     public GameObject instructions;
-    public GameObject instructionsButton;
+  
     private ARRaycastManager arRaycastManager;
-
+    public GameObject hud;
     private Vector2 touchPosition;
+    public Toggle planeDetection;
 
-
+    private ARPlaneManager arPlaneM;
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private void Awake()
     {
+        arPlaneM = GetComponent<ARPlaneManager>();
         arRaycastManager = GetComponent<ARRaycastManager>();
+        planeDetection = GetComponent<Toggle>();
     }
 
     bool TryToTouch(out Vector2 touchPosition)
@@ -67,11 +70,27 @@ public class ARTapToPlaceObject : MonoBehaviour
     public void DisableInstructions()
     {
        instructions.SetActive(false);
-       instructionsButton.SetActive(true);
+      
+        hud.SetActive(true);
     }
     public void EnableInstructions()
     {
         instructions.SetActive(true);
-        instructionsButton.SetActive(false);
+        
+        hud.SetActive(false);
+    }
+    public void TogglePlaneDetection()
+    {
+       
+            
+            arPlaneM.enabled = !arPlaneM.enabled;
+
+            foreach(ARPlane plane in arPlaneM.trackables)
+            {
+                plane.gameObject.SetActive(arPlaneM.enabled);
+            }
+            //planeDetection.GetComponentInChildren<Text>.text = arPlaneM.enabled ? "Disable Plane Detection" : "Enable Plane Detection";
+        
+     
     }
 }
