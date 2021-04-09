@@ -10,19 +10,19 @@ using UnityEngine.XR.ARSubsystems;
 public class ARTapToPlaceObject : MonoBehaviour
 { 
 
-    public GameObject camel;
+    public GameObject desertScene;
     public GameObject selectionMenu;
-    public GameObject oasis;
+    
     private GameObject spawnedObject;
     public GameObject instructions;
   
     private ARRaycastManager arRaycastManager;
     public GameObject hud;
     private Vector2 touchPosition;
-  
+    public Text debugText;
 
     private ARPlaneManager arPlaneM;
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     [SerializeField]
     private Button lockButton;
     private bool isLocked = false;
@@ -51,27 +51,66 @@ public class ARTapToPlaceObject : MonoBehaviour
                 .SetOverlayText(isLocked ? "AR Object Locked" : "AR Object Unlocked");
         }
     }
-    bool TryToTouch(out Vector2 touchPosition)
-    {
-        if(Input.touchCount > 0)
-        {
-            touchPosition = Input.GetTouch(index:0).position;
-            return true;
-        }
-        else
-        {
-           
-            touchPosition = default;
-            return false;
-        }
-
-      
-    }
 
     void Update()
     {
-        PlaceandDragObject();
-        
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            touchPosition = touch.position;
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                Ray ray = arCamera.ScreenPointToRay(touch.position);
+                RaycastHit hitObject;
+                if (Physics.Raycast(ray, out hitObject))
+                {
+                    PlacementObject placementObject = hitObject.transform.GetComponent<PlacementObject>();
+                    if (placementObject != null)
+                    {
+                        onTouchHold = isLocked ? false : true;
+                        placementObject.SetOverlayText(isLocked ? "AR Object Locked" : "AR Object Unlocked");
+                    }
+                }
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                onTouchHold = false;
+            }
+        }
+
+        if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+        {
+            Pose hitPose = hits[0].pose;
+            
+            if (spawnedObject == null)
+            {
+                if (defaultRotation > 0)
+                {
+                    spawnedObject = Instantiate(desertScene, hitPose.position, Quaternion.identity);
+                    spawnedObject.transform.Rotate(Vector3.up, defaultRotation);
+                }
+                else
+                {
+                    spawnedObject = Instantiate(desertScene, hitPose.position, hitPose.rotation);
+                }
+            }
+            else
+            {
+                if (onTouchHold)
+                {
+                    spawnedObject.transform.position = hitPose.position;
+                    if (defaultRotation == 0)
+                    {
+                       
+                        spawnedObject.transform.rotation = hitPose.rotation;
+                    }
+                }
+            }
+        }
+
     }
     public void DisableInstructions()
     {
@@ -99,74 +138,6 @@ public class ARTapToPlaceObject : MonoBehaviour
         
      
     }
-    public void PlaceandDragObject()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
+    
 
-            touchPosition = touch.position;
-           
-            if (touch.phase == TouchPhase.Began)
-            {
-                Ray ray = arCamera.ScreenPointToRay(touch.position);
-                RaycastHit hitObject;
-                if (Physics.Raycast(ray, out hitObject))
-                {
-                    PlacementObject placementObject = hitObject.transform.GetComponent<PlacementObject>();
-                    if (placementObject != null)
-                    {
-                        onTouchHold = isLocked ? false : true;
-                        placementObject.SetOverlayText(isLocked ? "AR Object Locked" : "AR Object Unlocked");
-                    }
-                }
-            }
-
-            if (touch.phase == TouchPhase.Ended)
-            {
-                onTouchHold = false;
-            }
-        }
-
-        if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
-        {
-            Pose hitPose = hits[0].pose;
-
-            if (spawnedObject == null)
-            {
-                if (defaultRotation > 0)
-                {
-                    spawnedObject = Instantiate(camel, hitPose.position, Quaternion.identity);
-                    spawnedObject.transform.Rotate(Vector3.up, defaultRotation);
-                }
-                else
-                {
-                    spawnedObject = Instantiate(camel, hitPose.position, hitPose.rotation);
-                }
-            }
-            else
-            {
-                if (onTouchHold)
-                {
-                    spawnedObject.transform.position = hitPose.position;
-                    if (defaultRotation == 0)
-                    {
-                        spawnedObject.transform.rotation = hitPose.rotation;
-                    }
-                }
-            }
-        }
-    }
-    public void SelectTile()
-    {
-        selectionMenu.SetActive(true);
-        hud.SetActive(false);
-
-    }
-    public void SelectPrefab()
-    {
-        selectionMenu.SetActive(false);
-        hud.SetActive(true);
-        
-    }
 }
