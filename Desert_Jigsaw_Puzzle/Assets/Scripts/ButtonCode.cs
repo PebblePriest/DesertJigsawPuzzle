@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class ButtonCode : MonoBehaviour
 {
@@ -10,13 +10,19 @@ public class ButtonCode : MonoBehaviour
     public GameObject TitlePanel;
     public GameObject LessonPanel;
     public GameObject PredictionsPanel;
-    public void StartButton()
+    public GameObject IndexPanel;
+    public GameObject SettingPanel;
+    public GameObject LessonCompletePanel;
+    
+    public GameObject ConceptMap;
+   
+    public void LessonSelect()
     {
         TitlePanel.SetActive(false);
         LessonPanel.SetActive(true);
         PredictionsPanel.SetActive(false);
     }
-    public void DesertButton()
+    public void Predictions()
     {
         LessonPanel.SetActive(false);
         PredictionsPanel.SetActive(true);
@@ -26,5 +32,41 @@ public class ButtonCode : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void TitleButton()
+    {
+        LessonPanel.SetActive(false);
+        PredictionsPanel.SetActive(false);
+        TitlePanel.SetActive(true);
+        LessonCompletePanel.SetActive(false);
+    }
+    public void Index()
+    {
+        IndexPanel.SetActive(true);
+        SettingPanel.SetActive(false);
+    }
+    public void IndexOff()
+    {
+        IndexPanel.SetActive(false);
+    }
+    public void Settings()
+    {
+        SettingPanel.SetActive(true);
+        IndexPanel.SetActive(false);
+    }
+    public void SettingsOff()
+    {
+        SettingPanel.SetActive(false);
+    }
+    public void ConceptPanel()
+    {
+        SettingPanel.SetActive(false);
+        IndexPanel.SetActive(false);
+        LessonPanel.SetActive(false);
+        PredictionsPanel.SetActive(false);
+        LessonCompletePanel.SetActive(false);
+        ConceptMap.SetActive(true);
+        TitlePanel.SetActive(false);
+    }
+  
    
 }
