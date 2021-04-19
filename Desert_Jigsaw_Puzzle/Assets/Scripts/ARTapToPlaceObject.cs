@@ -9,33 +9,40 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class ARTapToPlaceObject : MonoBehaviour
 { 
-
-    public GameObject desertScene;
-    public GameObject selectionMenu;
-    
-    private GameObject spawnedObject;
     public GameObject instructions;
-  
-    private ARRaycastManager arRaycastManager;
     public GameObject hud;
-    private Vector2 touchPosition;
-    public Text debugText;
+    [SerializeField]
+    private GameObject selectedPrefab;
+    
+    public Button dismissButton;
 
-    private ARPlaneManager arPlaneM;
-    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     [SerializeField]
     private Button lockButton;
-    private bool isLocked = false;
+
     [SerializeField]
     private Camera arCamera;
-   
+
+    [SerializeField]
     private float defaultRotation = 0;
+
+    private GameObject spawnedObject;
+
+    private Vector2 touchPosition = default;
+
+    private ARRaycastManager arRaycastManager;
+
+    private bool isLocked = false;
+
     private bool onTouchHold = false;
-    
+
+    private ARPlaneManager arPlaneM;
+
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private void Awake()
     {
-        arPlaneM = GetComponent<ARPlaneManager>();
         arRaycastManager = GetComponent<ARRaycastManager>();
+        arPlaneM = GetComponent<ARPlaneManager>();
+
         if (lockButton != null)
         {
             lockButton.onClick.AddListener(Lock);
@@ -54,6 +61,9 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
+
+       
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -84,17 +94,17 @@ public class ARTapToPlaceObject : MonoBehaviour
         if (arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             Pose hitPose = hits[0].pose;
-            
+
             if (spawnedObject == null)
             {
                 if (defaultRotation > 0)
                 {
-                    spawnedObject = Instantiate(desertScene, hitPose.position, Quaternion.identity);
+                    spawnedObject = Instantiate(selectedPrefab, hitPose.position, Quaternion.identity);
                     spawnedObject.transform.Rotate(Vector3.up, defaultRotation);
                 }
                 else
                 {
-                    spawnedObject = Instantiate(desertScene, hitPose.position, hitPose.rotation);
+                    spawnedObject = Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
                 }
             }
             else
@@ -104,7 +114,6 @@ public class ARTapToPlaceObject : MonoBehaviour
                     spawnedObject.transform.position = hitPose.position;
                     if (defaultRotation == 0)
                     {
-                       
                         spawnedObject.transform.rotation = hitPose.rotation;
                     }
                 }
