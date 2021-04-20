@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -38,6 +39,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     private ARPlaneManager arPlaneM;
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    public GameObject ReadingPanel1;
+
+    public GameObject IndexPanel;
+
+    bool BiomeVocab = false;
+
+    public GameObject BiomePanel;
     private void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
@@ -117,6 +126,7 @@ public class ARTapToPlaceObject : MonoBehaviour
                         spawnedObject.transform.rotation = hitPose.rotation;
                     }
                 }
+                
             }
         }
 
@@ -148,5 +158,32 @@ public class ARTapToPlaceObject : MonoBehaviour
      
     }
     
-
+    public void StartLesson()
+    {
+        ReadingPanel1.SetActive(true);
+        hud.SetActive(false);
+        BiomeVocab = true;
+    }
+    public void Index()
+    {
+        IndexPanel.SetActive(true);
+        
+       // BiomeVocab = true;
+    }
+    public void Biome()
+    {
+       // if(BiomeVocab == true)
+       // {
+            BiomePanel.SetActive(true);
+        //}
+    }
+    public void Return()
+    {
+        BiomePanel.SetActive(false);
+    }
+   
+    public void IndexOff()
+    {
+        IndexPanel.SetActive(false);
+    }
 }
