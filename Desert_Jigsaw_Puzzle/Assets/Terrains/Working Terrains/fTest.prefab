@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3089070248412994522
+--- !u!1 &2440143692304789736
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 337090535549384791}
-  - component: {fileID: 6437761576528779439}
-  - component: {fileID: 4518118262203900481}
+  - component: {fileID: 1129878807945139045}
+  - component: {fileID: 5932422477215363997}
+  - component: {fileID: 3868627656492747123}
   m_Layer: 0
-  m_Name: fullTerrain 1
+  m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &337090535549384791
+--- !u!4 &1129878807945139045
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089070248412994522}
+  m_GameObject: {fileID: 2440143692304789736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5958333, y: 10.392245, z: -1.254178}
+  m_LocalPosition: {x: 4.07, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!218 &6437761576528779439
+--- !u!218 &5932422477215363997
 Terrain:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089070248412994522}
+  m_GameObject: {fileID: 2440143692304789736}
   m_Enabled: 1
   serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 104ec4a1d3a7d8a44ad4a8046b0c65b5, type: 2}
@@ -65,13 +65,13 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
---- !u!154 &4518118262203900481
+--- !u!154 &3868627656492747123
 TerrainCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3089070248412994522}
+  m_GameObject: {fileID: 2440143692304789736}
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 104ec4a1d3a7d8a44ad4a8046b0c65b5, type: 2}
