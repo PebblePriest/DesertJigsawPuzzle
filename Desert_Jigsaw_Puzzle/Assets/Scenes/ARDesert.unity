@@ -804,8 +804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -55.388885, y: 658.0899}
-  m_SizeDelta: {x: 663.36664, y: 82.173584}
+  m_AnchoredPosition: {x: -0.9, y: 438}
+  m_SizeDelta: {x: 772.39703, y: 427.52225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686618867
 MonoBehaviour:
@@ -880,8 +880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 280.6, y: -125.8}
-  m_SizeDelta: {x: 189.24503, y: 281.56705}
+  m_AnchoredPosition: {x: 280.6, y: -183.52}
+  m_SizeDelta: {x: 189.24503, y: 396.99802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753087373
 MonoBehaviour:
@@ -1752,8 +1752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1101760184}
-  Lesson1clip: {fileID: 8300000, guid: b826bacc14b709943951964537aeb6e3, type: 3}
-  BiomeClip: {fileID: 8300000, guid: 63c171384ce393e4eaf1b33795f2f664, type: 3}
+  Lesson1clip: {fileID: 8300000, guid: 1d5b78fed97bbd0478cdf40be3e49e6d, type: 3}
+  BiomeClip: {fileID: 8300000, guid: 8f09bf51f1bdd424ba45e580647e6135, type: 3}
 --- !u!82 &1101760184
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2049,6 +2049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1140785422525465732, guid: e6618be0ed5615340a82215a6c338783,
         type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 56.06952
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140785422525465732, guid: e6618be0ed5615340a82215a6c338783,
+        type: 3}
       propertyPath: m_LocalScale.x
       value: 1.980414
       objectReference: {fileID: 0}
@@ -2070,7 +2075,7 @@ PrefabInstance:
     - target: {fileID: 1140785422525465732, guid: e6618be0ed5615340a82215a6c338783,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -232
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 1140785422801715843, guid: e6618be0ed5615340a82215a6c338783,
         type: 3}
@@ -2378,8 +2383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.7, y: -504.8}
-  m_SizeDelta: {x: 269.90292, y: 130.15256}
+  m_AnchoredPosition: {x: 7.7, y: -504.8}
+  m_SizeDelta: {x: 447.94553, y: 130.15256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333788560
 MonoBehaviour:
@@ -2864,7 +2869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructions: {fileID: 205911339}
   hud: {fileID: 1007307742}
-  selectedPrefab: {fileID: 6984392933271138813, guid: 4186b846eb148494caa83c9fc6511c7d,
+  selectedPrefab: {fileID: 3633753880883921197, guid: 6034f9fd8bbb6d342bb07601752005c6,
     type: 3}
   dismissButton: {fileID: 1927715483}
   lockButton: {fileID: 575901058}
@@ -2873,6 +2878,8 @@ MonoBehaviour:
   ReadingPanel1: {fileID: 1339034979}
   IndexPanel: {fileID: 792903790}
   BiomePanel: {fileID: 2147036880}
+  panel1Enabled: 0
+  anim: {fileID: 0}
 --- !u!114 &1438433267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2939,8 +2946,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010910034, y: 0.00024414062}
-  m_SizeDelta: {x: 663.3687, y: 82.173546}
+  m_AnchoredPosition: {x: -1.2, y: 0.000091553}
+  m_SizeDelta: {x: 746.60065, y: 427.52237}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538391911
 MonoBehaviour:
@@ -2963,10 +2970,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2974,13 +2981,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Desert is one of the many Biomes on Earth. A Biome is a major regional
-    group of distinctive plants and animal communities best adapted to the region's
-    physical natural environment. With the Desert Biome making up about 33% of the
-    land on Earth, combined with the scarce plantlife of the region as well as the
-    fact that it gets at most 25cm of rainfall a year, it can be a very hard place
-    to live. Eve so, many animals call this their home, including our friend the
-    camel, who has just made his way accross this new terrain on his adventure.
+  m_Text: "Welcome to the Desert! Deserts areas cover about 33% of the land on Earth
+    and land surfaces include stones, sand dunes, or snow. While many other habitats
+    have plenty of food, water, and shelter it\u2019s harder to find, so many animals
+    have needed to adapt to live in this environment. \r\n\r\nOne such animal is
+    the camel. Camels have adapted and found ways to help them survive in deserts.
+    They have a thick coat of hair that protects them from the heat in the day and
+    keeps them warm at night. They also have rubbery patches on their bellies and
+    knees so they can sit in the hot sands. Camels can also change their body temperature
+    by six degrees Celsius either way.  In order to walk across the sands without
+    sinking, they have wide flat feet to distribute their weight evenly. \r\n"
 --- !u!222 &1538391912
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3025,7 +3035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 333.52, y: 658.09}
+  m_AnchoredPosition: {x: 8, y: 426}
   m_SizeDelta: {x: 114.44803, y: 82.17168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1702602789
@@ -3080,6 +3090,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4481665975321099038, guid: d59606167f3a49a4eb239ff02d76ddf3,
+          type: 3}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CamelMove
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1702602790
@@ -3510,11 +3532,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -3564,8 +3586,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.5, y: -125.8}
-  m_SizeDelta: {x: 540.2257, y: 281.57162}
+  m_AnchoredPosition: {x: -102.5, y: -183.5}
+  m_SizeDelta: {x: 540.2257, y: 397.02945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079187485
 MonoBehaviour:
@@ -3588,20 +3610,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 45
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' A Biome is a major regional group of distinctive plants and animal communities
-    best adapted to the region''s physical natural environment. An example of a biome
-    would be the Desert, as you can see above. '
+  m_Text: "Biome: A biome is a major regional group of distinctive plant and animal
+    communities best adapted to the region\u2019s physical natural environment.. "
 --- !u!222 &2079187486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3788,8 +3809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 380}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5.500244, y: 385.09998}
+  m_SizeDelta: {x: 113.27869, y: 123.32825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2147036882
 MonoBehaviour:
