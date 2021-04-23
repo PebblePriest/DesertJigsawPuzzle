@@ -1961,6 +1961,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1578406690}
+    - target: {fileID: 8194372621481471252, guid: 051535c974e249e479ed3e0c4ea31c93,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LessonComplete
+      objectReference: {fileID: 0}
     - target: {fileID: 8194372621553631021, guid: 051535c974e249e479ed3e0c4ea31c93,
         type: 3}
       propertyPath: m_SizeDelta.y
