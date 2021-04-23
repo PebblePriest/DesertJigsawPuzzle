@@ -67,6 +67,16 @@ public class ButtonCode : MonoBehaviour
         ConceptMap.SetActive(true);
         TitlePanel.SetActive(false);
     }
+    public void LessonComplete()
+    {
+        SettingPanel.SetActive(false);
+        IndexPanel.SetActive(false);
+        LessonPanel.SetActive(false);
+        PredictionsPanel.SetActive(false);
+        LessonCompletePanel.SetActive(true);
+        ConceptMap.SetActive(false);
+        TitlePanel.SetActive(false);
+    }
   
    
 }

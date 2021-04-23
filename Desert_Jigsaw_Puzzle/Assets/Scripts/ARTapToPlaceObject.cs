@@ -47,6 +47,10 @@ public class ARTapToPlaceObject : MonoBehaviour
     bool BiomeVocab = false;
 
     public GameObject BiomePanel;
+
+    public bool panel1Enabled = false;
+
+    public Animation anim;
     private void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
@@ -56,6 +60,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             lockButton.onClick.AddListener(Lock);
         }
+        anim = selectedPrefab.GetComponent<Animation>();
     }
     private void Lock()
     {
@@ -70,7 +75,12 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
+        if(panel1Enabled == true)
+        {
+            anim.Play("CamelMove");
+            Debug.Log("AnimationPlaying");
 
+        }
        
 
         if (Input.touchCount > 0)
@@ -163,6 +173,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         ReadingPanel1.SetActive(true);
         hud.SetActive(false);
         BiomeVocab = true;
+        panel1Enabled = true;
     }
     public void Index()
     {
