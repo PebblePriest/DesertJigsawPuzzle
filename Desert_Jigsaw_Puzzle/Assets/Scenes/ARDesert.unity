@@ -2869,7 +2869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructions: {fileID: 205911339}
   hud: {fileID: 1007307742}
-  selectedPrefab: {fileID: 3633753880883921197, guid: 6034f9fd8bbb6d342bb07601752005c6,
+  selectedPrefab: {fileID: 1732082219138451030, guid: 8a3a513777af7304eb98b1182aaaf281,
     type: 3}
   dismissButton: {fileID: 1927715483}
   lockButton: {fileID: 575901058}
