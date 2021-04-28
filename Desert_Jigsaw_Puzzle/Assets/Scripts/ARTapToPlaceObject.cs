@@ -179,14 +179,14 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         IndexPanel.SetActive(true);
         
-       // BiomeVocab = true;
+       
     }
     public void Biome()
     {
-       // if(BiomeVocab == true)
-       // {
+     
+
             BiomePanel.SetActive(true);
-        //}
+        
     }
     public void Return()
     {
