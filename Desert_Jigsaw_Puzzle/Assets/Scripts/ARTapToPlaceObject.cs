@@ -41,16 +41,32 @@ public class ARTapToPlaceObject : MonoBehaviour
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     public GameObject ReadingPanel1;
-
-    public GameObject IndexPanel;
-
-    bool BiomeVocab = false;
-
+    public GameObject ReadingPanel2;
     public GameObject BiomePanel;
+    public GameObject HumpPanel;
+    public GameObject IndexPanel;
+    public GameObject ErrorPanel;
+    public GameObject AdaptPanel;
+    public GameObject HabitatPanel;
+    public GameObject SettingPanel;
+    public GameObject InteractivePanel1;
 
-    public bool panel1Enabled = false;
-
+    //Booleans used to control if a vocab word shows up in the index
+    public bool BiomeVocab = false;
+    public bool humpVocab = false;
+    public bool adaptVocab = false;
+    public bool habitatVocab = false;
+    public bool readinglesson = false;
+   
     public Animation anim;
+
+    public GameObject NextBttn;
+    public GameObject NextBttn2;
+
+    public AudioCode other;
+
+    public float waittime = 60f;
+    public float humpTime = 60f;
     private void Awake()
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
@@ -60,7 +76,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             lockButton.onClick.AddListener(Lock);
         }
-        anim = selectedPrefab.GetComponent<Animation>();
+        //anim = selectedPrefab.GetComponent<Animation>();
     }
     private void Lock()
     {
@@ -75,12 +91,12 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
-        if(panel1Enabled == true)
-        {
-            anim.Play("CamelMove");
-            Debug.Log("AnimationPlaying");
+        //if(panel1Enabled == true)
+        //{
+        //    anim.Play("CamelMove");
+        //    Debug.Log("AnimationPlaying");
 
-        }
+        //}
        
 
         if (Input.touchCount > 0)
@@ -139,6 +155,40 @@ public class ARTapToPlaceObject : MonoBehaviour
                 
             }
         }
+        Debug.Log(BiomeVocab);
+        if(BiomeVocab == true)
+        {
+            if( readinglesson == true)
+            {
+
+                Debug.Log(waittime);
+                waittime -= 1 * Time.deltaTime;
+                if (waittime <= 0)
+                {
+                    waittime = 0;
+                    NextBttn.SetActive(true);
+
+
+                }
+
+            }         
+            
+        }
+        if (humpVocab == true)
+        {
+            if(readinglesson == true)
+            {
+                 Debug.Log(waittime);
+                 humpTime -= 1 * Time.deltaTime;
+                 if (humpTime <= 0)
+                 {
+                     humpTime = 0;
+                     NextBttn2.SetActive(true);
+                 }
+
+            }
+           
+        }
 
     }
     public void DisableInstructions()
@@ -173,28 +223,121 @@ public class ARTapToPlaceObject : MonoBehaviour
         ReadingPanel1.SetActive(true);
         hud.SetActive(false);
         BiomeVocab = true;
-        panel1Enabled = true;
+        readinglesson = true;
+        
+
     }
     public void Index()
     {
         IndexPanel.SetActive(true);
+        other.StopAudio();
+        readinglesson = false;
         
-       // BiomeVocab = true;
+       
     }
-    public void Biome()
-    {
-       // if(BiomeVocab == true)
-       // {
-            BiomePanel.SetActive(true);
-        //}
-    }
+
     public void Return()
     {
         BiomePanel.SetActive(false);
+        HumpPanel.SetActive(false);
+        ErrorPanel.SetActive(false);
+        HabitatPanel.SetActive(false);
+        AdaptPanel.SetActive(false);
+    }
+    public void Setting()
+    {
+        SettingPanel.SetActive(true);
+
+    }
+    public void SettingOff()
+    {
+        SettingPanel.SetActive(false);
     }
    
     public void IndexOff()
     {
         IndexPanel.SetActive(false);
+        readinglesson = true;
     }
+    public void NextButton()
+    {
+        ReadingPanel1.SetActive(false);
+        ReadingPanel2.SetActive(true);
+        humpVocab = true;
+        readinglesson = true;
+
+    }
+    public void Interactive1()
+    {
+        ReadingPanel2.SetActive(false);
+        InteractivePanel1.SetActive(true);
+    }
+
+    //Code used to activate vocab panels and error codes, all same code with different variables
+    public void ErrorOff()
+    {
+        ErrorPanel.SetActive(false);
+    }
+    public void Biome()
+    {
+     if(BiomeVocab == true)
+        {
+            BiomePanel.SetActive(true);
+
+        }
+        else
+        {
+            ErrorPanel.SetActive(true);
+        }
+
+       
+        
+    }
+    public void Hump()
+    {
+        if (humpVocab == true)
+        {
+            HumpPanel.SetActive(true);
+
+        }
+        else
+        {
+            ErrorPanel.SetActive(true);
+        }
+
+
+
+    }
+    public void Habitat()
+    {
+        if (habitatVocab == true)
+        {
+            HabitatPanel.SetActive(true);
+
+        }
+        else
+        {
+            ErrorPanel.SetActive(true);
+        }
+
+
+
+    }
+    public void Adapt()
+    {
+        if (adaptVocab == true)
+        {
+            AdaptPanel.SetActive(true);
+
+        }
+        else
+        {
+            ErrorPanel.SetActive(true);
+        }
+
+
+
+    }
+
+
 }

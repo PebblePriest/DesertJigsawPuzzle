@@ -13,20 +13,25 @@ public class ButtonCode : MonoBehaviour
     public GameObject IndexPanel;
     public GameObject SettingPanel;
     public GameObject LessonCompletePanel;
-    
+    public GameObject namePanel;
     public GameObject ConceptMap;
-   
+    public GameObject ErrorPanel;
+    public Timer other;
     public void LessonSelect()
     {
+        other.startTimer = false;
+        other.currentTime = other.startingTime;
         TitlePanel.SetActive(false);
         LessonPanel.SetActive(true);
         PredictionsPanel.SetActive(false);
+        namePanel.SetActive(false);
     }
     public void Predictions()
     {
         LessonPanel.SetActive(false);
         PredictionsPanel.SetActive(true);
         TitlePanel.SetActive(false);
+        namePanel.SetActive(false);
     }
     public void Continue()
     {
@@ -77,6 +82,18 @@ public class ButtonCode : MonoBehaviour
         ConceptMap.SetActive(false);
         TitlePanel.SetActive(false);
     }
-  
+    public void Name()
+    {
+        namePanel.SetActive(true);
+    }
+   
+   public void Error()
+    {
+        ErrorPanel.SetActive(true);
+    }
+    public void ErrorOff()
+    {
+        ErrorPanel.SetActive(false);
+    }
    
 }
