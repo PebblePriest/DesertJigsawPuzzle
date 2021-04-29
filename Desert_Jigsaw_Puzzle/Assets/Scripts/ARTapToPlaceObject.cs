@@ -67,16 +67,24 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public float waittime = 60f;
     public float humpTime = 60f;
+    public ButtonCode buttons;
+    
     private void Awake()
     {
-        arRaycastManager = GetComponent<ARRaycastManager>();
-        arPlaneM = GetComponent<ARPlaneManager>();
+       
+            arRaycastManager = GetComponent<ARRaycastManager>();
+            arPlaneM = GetComponent<ARPlaneManager>();
 
-        if (lockButton != null)
-        {
-            lockButton.onClick.AddListener(Lock);
-        }
-        //anim = selectedPrefab.GetComponent<Animation>();
+            if (lockButton != null)
+            {
+                lockButton.onClick.AddListener(Lock);
+            }
+            //anim = selectedPrefab.GetComponent<Animation>();
+         
+    }
+    private void Start()
+    {
+       
     }
     private void Lock()
     {
@@ -91,12 +99,7 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
-        //if(panel1Enabled == true)
-        //{
-        //    anim.Play("CamelMove");
-        //    Debug.Log("AnimationPlaying");
-
-        //}
+       
        
 
         if (Input.touchCount > 0)
@@ -271,6 +274,10 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         ReadingPanel2.SetActive(false);
         InteractivePanel1.SetActive(true);
+    }
+    public void LessonComplete()
+    {
+        
     }
 
     //Code used to activate vocab panels and error codes, all same code with different variables

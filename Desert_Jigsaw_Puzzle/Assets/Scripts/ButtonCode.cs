@@ -16,7 +16,11 @@ public class ButtonCode : MonoBehaviour
     public GameObject namePanel;
     public GameObject ConceptMap;
     public GameObject ErrorPanel;
+    public GameObject InstructionsPanel;
     public Timer other;
+    
+   
+   
     public void LessonSelect()
     {
         other.startTimer = false;
@@ -35,7 +39,10 @@ public class ButtonCode : MonoBehaviour
     }
     public void Continue()
     {
-        SceneManager.LoadScene(1);
+        PredictionsPanel.SetActive(false);
+        InstructionsPanel.SetActive(true);
+        
+       
     }
     public void TitleButton()
     {
