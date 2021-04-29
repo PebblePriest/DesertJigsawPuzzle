@@ -24,10 +24,14 @@ public class ReadInput : MonoBehaviour
     public Text dateText;
     public Text titleText;
     public Text whatYouKnow;
+    public Text Q1;
+    public Text Q2;
 
     public GameObject NextButton;
     public GameObject RNextButton;
     public GameObject continueButton;
+    public GameObject QNB1;
+    public GameObject QNB2;
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +93,20 @@ public class ReadInput : MonoBehaviour
         Debug.Log(s);
         r.text = s;
         RNextButton.SetActive(true);
+    }
+    public void Question1(string s)
+    {
+        input = s;
+        Debug.Log(s);
+        Q1.text = "Biome: " + s;
+        QNB1.SetActive(true);
+    }
+    public void Question2(string s)
+    {
+        input = s;
+        Debug.Log(s);
+        Q2.text = "Hump: " + s;
+        QNB2.SetActive(true);
     }
 
 }
