@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     public float reminderCounter = 15f;
     
     public bool startTimer;
-
+    public bool noTimer = false;
    
     public bool reminderBool;
     // Start is called before the first frame update
@@ -42,33 +42,34 @@ public class Timer : MonoBehaviour
         {
             count = 0;
         }
-       
-        if(startTimer == true)
-        {
-            //Debug.Log("Timer Started");
-            currentTime -= 1 * Time.deltaTime;
-            //Debug.Log(currentTime);
-            //Debug.Log(startTimer);
-            if (currentTime <= 0)
+      
+            if (startTimer == true)
             {
-               
-                currentTime = 0;
-                
-               reminder.SetActive(true);
-                
-                reminderCounter -= 1 * Time.deltaTime;
-                
-                
-               if (reminderCounter <= 0)
-               {
-                    reminder.SetActive(false);
-                    startTimer = false;
+
+                currentTime -= 1 * Time.deltaTime;
+
+                if (currentTime <= 0)
+                {
+
+                    currentTime = 0;
+
+                    reminder.SetActive(true);
+
+                    reminderCounter -= 1 * Time.deltaTime;
+
+
+                    if (reminderCounter <= 0)
+                    {
+                        reminder.SetActive(false);
+                        startTimer = false;
+                    }
+
+
                 }
-               
 
             }
-            
-        }
+        
+        
     }
     public void TimerStart()
     {
