@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         {
             Debug.Log("Got here");
             count += 1;
-            if (count >= 2000)
+            if (count >= 100)
             {
                 Debug.Log("Deactivate");
                 Successful.gameObject.SetActive(false);

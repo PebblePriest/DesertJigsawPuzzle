@@ -110,7 +110,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             anim["CamelBending"].normalizedTime = slider.value;
         }
-        if(slider.value == 20)
+        if(slider.value == 1)
         {
             IntBtn();
         }
@@ -289,6 +289,8 @@ public class ARTapToPlaceObject : MonoBehaviour
         QuestionPanel2.SetActive(true);
         ReadingPanel2.SetActive(false);
     }
+  
+
     public void NextButton()
     {
         anim = spawnedObject.GetComponent<Animation>();

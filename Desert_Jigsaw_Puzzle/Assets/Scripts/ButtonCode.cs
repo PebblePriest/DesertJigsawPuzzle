@@ -73,13 +73,7 @@ public class ButtonCode : MonoBehaviour
     }
     public void ConceptPanel()
     {
-        SettingPanel.SetActive(false);
-        IndexPanel.SetActive(false);
-        LessonPanel.SetActive(false);
-        PredictionsPanel.SetActive(false);
-        LessonCompletePanel.SetActive(false);
         ConceptMap.SetActive(true);
-        TitlePanel.SetActive(false);
     }
     public void LessonComplete()
     {
@@ -108,6 +102,10 @@ public class ButtonCode : MonoBehaviour
     {
         Coming.SetActive(true);
     }
-   
-   
+    public void ConceptOff()
+    {
+        ConceptMap.SetActive(false);
+    }
+
+
 }
