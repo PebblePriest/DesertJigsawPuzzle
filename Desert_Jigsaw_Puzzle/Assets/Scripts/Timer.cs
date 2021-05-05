@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     public bool isTurnedOn;
     public int count;
     public GameObject reminder;
-    public float reminderCounter = 15f;
+    public float reminderCounter = 10f;
     
     public bool startTimer;
     public bool noTimer = false;
@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         currentTime = startingTime;
-        reminderCounter = 15f;
+        reminderCounter = 6f;
     }
 
     // Update is called once per frame

@@ -50,6 +50,8 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject HabitatPanel;
     public GameObject SettingPanel;
     public GameObject InteractivePanel1;
+    public GameObject QuestionPanel1;
+    public GameObject QuestionPanel2;
 
     //Booleans used to control if a vocab word shows up in the index
     public bool BiomeVocab = false;
@@ -58,25 +60,34 @@ public class ARTapToPlaceObject : MonoBehaviour
     public bool habitatVocab = false;
     public bool readinglesson = false;
    
-    public Animation anim;
+    private Animation anim;
 
     public GameObject NextBttn;
     public GameObject NextBttn2;
 
     public AudioCode other;
 
-    public float waittime = 60f;
-    public float humpTime = 60f;
+    public float waittime = 30f;
+    public float humpTime = 30f;
+    public ButtonCode buttons;
+    
     private void Awake()
     {
-        arRaycastManager = GetComponent<ARRaycastManager>();
-        arPlaneM = GetComponent<ARPlaneManager>();
+       
+            arRaycastManager = GetComponent<ARRaycastManager>();
+            arPlaneM = GetComponent<ARPlaneManager>();
+            
 
-        if (lockButton != null)
-        {
-            lockButton.onClick.AddListener(Lock);
-        }
-        //anim = selectedPrefab.GetComponent<Animation>();
+            if (lockButton != null)
+            {
+                lockButton.onClick.AddListener(Lock);
+            }
+            //anim = selectedPrefab.GetComponent<Animation>();
+         
+    }
+    private void Start()
+    {
+        
     }
     private void Lock()
     {
@@ -91,13 +102,9 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
-        //if(panel1Enabled == true)
-        //{
-        //    anim.Play("CamelMove");
-        //    Debug.Log("AnimationPlaying");
 
-        //}
-       
+        
+
 
         if (Input.touchCount > 0)
         {
@@ -220,10 +227,13 @@ public class ARTapToPlaceObject : MonoBehaviour
     
     public void StartLesson()
     {
+        anim = spawnedObject.GetComponent<Animation>();
+        anim.Play("CamelMove");
         ReadingPanel1.SetActive(true);
         hud.SetActive(false);
         BiomeVocab = true;
         readinglesson = true;
+        
         
 
     }
@@ -259,19 +269,35 @@ public class ARTapToPlaceObject : MonoBehaviour
         IndexPanel.SetActive(false);
         readinglesson = true;
     }
+    public void Question1()
+    {
+        QuestionPanel1.SetActive(true);
+        ReadingPanel1.SetActive(false);
+    }
+    public void Question2()
+    {
+        QuestionPanel2.SetActive(true);
+        ReadingPanel2.SetActive(false);
+    }
     public void NextButton()
     {
+        anim = spawnedObject.GetComponent<Animation>();
+        anim.Play("CamelMove2");
         ReadingPanel1.SetActive(false);
+        QuestionPanel1.SetActive(false);
         ReadingPanel2.SetActive(true);
         humpVocab = true;
         readinglesson = true;
+        
 
     }
     public void Interactive1()
     {
+        QuestionPanel2.SetActive(false);
         ReadingPanel2.SetActive(false);
         InteractivePanel1.SetActive(true);
     }
+    
 
     //Code used to activate vocab panels and error codes, all same code with different variables
     public void ErrorOff()
