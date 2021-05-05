@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     public bool noTimer = false;
    
     public bool reminderBool;
+    public ButtonCode but;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +78,7 @@ public class Timer : MonoBehaviour
     }
     public void HandleInputData(int val)
     {
+        but.Coming.SetActive(false);
         Successful.gameObject.SetActive(true);
         if(val == 0){
             startingTime = 30f;

@@ -59,17 +59,20 @@ public class ARTapToPlaceObject : MonoBehaviour
     public bool adaptVocab = false;
     public bool habitatVocab = false;
     public bool readinglesson = false;
+    public bool interaction = false;
    
     private Animation anim;
 
     public GameObject NextBttn;
     public GameObject NextBttn2;
+    public GameObject intNextBtn;
 
     public AudioCode other;
 
     public float waittime = 30f;
     public float humpTime = 30f;
     public ButtonCode buttons;
+    public Slider slider;
     
     private void Awake()
     {
@@ -103,8 +106,15 @@ public class ARTapToPlaceObject : MonoBehaviour
     void Update()
     {
 
+        if(interaction == true)
+        {
+            anim["CamelBending"].normalizedTime = slider.value;
+        }
+        if(slider.value == 20)
+        {
+            IntBtn();
+        }
         
-
 
         if (Input.touchCount > 0)
         {
@@ -228,7 +238,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     public void StartLesson()
     {
         anim = spawnedObject.GetComponent<Animation>();
-        anim.Play("CamelMove");
+        anim.Play("CamelMoving");
         ReadingPanel1.SetActive(true);
         hud.SetActive(false);
         BiomeVocab = true;
@@ -282,7 +292,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     public void NextButton()
     {
         anim = spawnedObject.GetComponent<Animation>();
-        anim.Play("CamelMove2");
+        anim.Play("CamelMoving2");
         ReadingPanel1.SetActive(false);
         QuestionPanel1.SetActive(false);
         ReadingPanel2.SetActive(true);
@@ -296,7 +306,16 @@ public class ARTapToPlaceObject : MonoBehaviour
         QuestionPanel2.SetActive(false);
         ReadingPanel2.SetActive(false);
         InteractivePanel1.SetActive(true);
+        interaction = true;
+        anim.Play("CamelBending");
+        anim["CamelBending"].speed = 0;
     }
+    public void IntBtn()
+    {
+        intNextBtn.SetActive(true);
+    }
+   
+   
     
 
     //Code used to activate vocab panels and error codes, all same code with different variables

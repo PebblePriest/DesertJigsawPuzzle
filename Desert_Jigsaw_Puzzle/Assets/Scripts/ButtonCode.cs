@@ -18,6 +18,7 @@ public class ButtonCode : MonoBehaviour
     public GameObject ErrorPanel;
     public GameObject InstructionsPanel;
     public Timer other;
+    public GameObject Coming;
     
    
    
@@ -68,6 +69,7 @@ public class ButtonCode : MonoBehaviour
     public void SettingsOff()
     {
         SettingPanel.SetActive(false);
+        Coming.SetActive(false);
     }
     public void ConceptPanel()
     {
@@ -102,5 +104,10 @@ public class ButtonCode : MonoBehaviour
     {
         ErrorPanel.SetActive(false);
     }
+    public void ComingSoon()
+    {
+        Coming.SetActive(true);
+    }
+   
    
 }
